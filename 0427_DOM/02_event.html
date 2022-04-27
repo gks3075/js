@@ -11,7 +11,7 @@
   <button onclick="alertMessage()">나를 눌러봐!</button>
 
   <!-- 2-1. addEventListener -->
-  <button id="my-button">나를 눌러봐!!</button>
+  <button id="my-button">나를 눌러봐2!!</button>
   <hr>
 
 	<!-- 2-2. addEventListener -->
@@ -35,17 +35,36 @@
       alert('메롱!!!')
     }
 
+    const arr = [1, 2, 3]
+
     // 2-1
     const myButton = document.querySelector('#my-button')
+    myButton.addEventListener('click', alertMessage)
 
     // 2-2
     const myTextInput = document.querySelector('#my-text-input')
+    const myP = document.querySelector('#my-paragraph')
+    
+    myTextInput.addEventListener('input', function (event) {
+      // console.log(event.target.value)
+      myP.innerText = event.target.value
+    })
+
+    // Arrow Function Refactoring 한다면?
+    // myTextInput.addEventListener('input', event => myP.innerText = event.target.value)
 
     
 
     // 2-3
-    const colorInput = document.querySelector('#change-color-input')
+    const h2Tag = document.querySelector('h2')
 
+    const onColorInput = function (event) {
+      const userInput = event.target.value
+      h2Tag.style.color = userInput
+    }
+
+    const colorInput = document.querySㅌelector('#change-color-input')
+    colorInput.addEventListener('input', onColorInput)
   </script>
 </body>
 </html>
