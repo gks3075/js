@@ -9,6 +9,11 @@
     .ssafy-location {
       color: blue;
     }
+    .focus {
+      color: gold;
+      background-color: navy;
+      font-weight: 300;
+    }
   </style>
 </head>
 <body>
@@ -64,17 +69,17 @@
     ulTag.append(new1, new2, new3)
     
     // 2-3. appendChild
-    const ulTag = document.querySelector('ul')
-    const newLiTag = document.createElement('li')
-    newLiTag.innerText = '새로운 리스트 태그'
-    ulTag.appendChild(newLiTag)
-    ulTag.appendChild('문자열은 추가 불가')
+      const ulTag = document.querySelector('ul')
+      const newLiTag = document.createElement('li')
+      newLiTag.innerText = '새로운 리스트 태그'
+      ulTag.appendChild(newLiTag)
+      ulTag.appendChild('문자열은 추가 불가')
 
     const new1 = document.createElement('li')
     new1.innerText = '리스트 1'
     const new2 = document.createElement('li')
     new2.innerText = '리스트 2'
-    ulTag.appendChild(new1, new2)
+    ulTag.appendChild(new1, new2)  // 1개씩만 추가 가능
 
     // 2-2. innerText & innerHTML
     const ulTag = document.querySelector('ul')
@@ -98,6 +103,8 @@
     const child = document.querySelector('ul > li')
     const removedChild = parent.removeChild(child)
     console.log(removedChild)
+    // 순서 바꾸기
+    parent.append(child)
 
     // 4. 속성
     // 4-1. setAttribute
