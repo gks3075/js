@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>@import url(https://fonts.googleapis.com/css?family=Abril+Fatface);
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+    }
+    
+    .background {
+      background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/341817/record-player.jpg);
+      background-position: 0;
+      background-size: cover;
+      height: 100%;
+      width: 100%;
+    }
+    
+      .scratch--outer,
+      .scratch--inner {
+        height: inherit;
+        &:after {
+        content: '';
+        animation: scratch 0.45s steps(1) infinite;
+        background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/341817/scratch.png) repeat center center;
+        height: 100%;
+        left: 0;
+        opacity: .08;
+        padding-left: 100px;
+        position: absolute;
+        top: 0;
+        width: 120%;
+      }
+    }
+    
+    .scratch--inner:after {
+      animation: inner-scratch 2s infinite;
+      left: 30%;
+    }
+    
+    .grain:after {
+      animation: grain 0.5s steps(1) infinite;
+      background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/341817/grain.jpg) repeat center center;
+      content: '';
+      height: 110%;
+      left: -5%;
+      opacity: .11;
+      position: absolute;
+      top: -5%;
+      width: 110%;
+    }
+    
+    .title {
+      animation: 3s fade;
+      color: #bf9107;
+      font-family: 'Abril Fatface', cursive;
+      font-size: 5em;
+      left: 0;
+      position: absolute;
+      text-align: center;
+      top: 0;
+      width: 100%;
+    
+      span {
+        display: inline-block;
+        padding: .5em 1em;
+        position: relative;
+        &:before {
+          content: '';
+          animation: 2.5s draw;
+          border-top: 1px solid #bf9107;
+          display: block;
+          margin-bottom: 5%;
+          margin-left: -5%;
+          width: 110%;
+        }
+        &:after {
+          animation: 2.5s draw-bottom;
+          border-bottom: 1px solid #af8300;
+          bottom: 0;
+          content: '';
+          display: block;
+          position: absolute;
+          right: 0;
+          width: 100%;
+        }
+      }
+    }
+    
+    
+    /* Film Animations */
+    
+    @keyframes grain {
+      0%,
+      100% {
+        transform: translate(0, 0, 0);
+      }
+      10% {
+        transform: translate(-1%, -1%);
+      }
+      20% {
+        transform: translate(1%, 1%);
+      }
+      30% {
+        transform: translate(-2%, -2%);
+      }
+      40% {
+        transform: translate(3%, 3%);
+      }
+      50% {
+        transform: translate(-3%, -3%);
+      }
+      60% {
+        transform: translate(4%, 4%);
+      }
+      70% {
+        transform: translate(-4%, -4%);
+      }
+      80% {
+        transform: translate(2%, 2%);
+      }
+      90% {
+        transform: translate(-3%, -3%);
+      }
+    }
+    
+    @keyframes scratch {
+      0%,
+      100% {
+        opacity: 0.075;
+        transform: translateX(0);
+      }
+      10% {
+        transform: translateX(-1%);
+      }
+      20% {
+        transform: translateX(1%);
+      }
+      30% {
+        opacity: 0.09;
+        transform: translateX(-2%);
+      }
+      40% {
+        transform: translateX(3%);
+      }
+      50% {
+        opacity: 0.05;
+        transform: translateX(-3%);
+      }
+      60% {
+        transform: translateX(8%);
+      }
+      70% {
+        transform: translateX(-3%);
+      }
+      80% {
+        opacity: 0.02;
+        transform: translateX(10%);
+      }
+      90% {
+        transform: translateX(-2%);
+      }
+    }
+    
+    // Long Scratches
+    @keyframes inner-scratch {
+      0% {
+        opacity: 0.08;
+        transform: translateX(0);
+      }
+      10% {
+        transform: translateX(-1%);
+      }
+      20% {
+        transform: translateX(1%);
+      }
+      30% {
+        transform: translateX(-2%);
+      }
+      40% {
+        transform: translateX(3%);
+      }
+      50% {
+        opacity: 0.06;
+        transform: translateX(-3%);
+      }
+      60% {
+        transform: translateX(8%);
+      }
+      70% {
+        transform: translateX(-3%);
+      }
+      80% {
+        opacity: 0.03;
+        transform: translateX(10%);
+      }
+      90% {
+        transform: translateX(20%);
+      }
+      100% {
+        transform: translateX(30%);
+      }
+    }
+    
+    @keyframes draw {
+      0% {
+        width: 0%;
+      }
+      100% {
+        width: 110%;
+      }
+    }
+    
+    @keyframes draw-bottom {
+      0% {
+        width: 0%;
+      }
+      100% {
+        width: 100%;
+      }
+    }
+    
+    @keyframes fade {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }</style>
+  <title>Document</title>
+</head>
+<body>
+  <h1 class="title">
+    <span>Retro Movie Effect</span>
+  </h1>
+  <div class='scratch--outer'>
+    <div class="scratch--inner">
+      <div class="background grain"></div>
+    </div> 
+  </div>
+</body>
+</html>
